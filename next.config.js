@@ -12,6 +12,7 @@ const nextConfig = {
     //       },
     //     ];
     //   }
+    // ok
 }
 
 module.exports = nextConfig
