@@ -10,13 +10,13 @@ export default function NavBar() {
       <div className="flex w-[20%] justify-center p-2 space-x-4 content-center">
         <Image className="logo_icon" src={LogoIcon} alt="logo_icon" height={42} width={42} />
         
-        <h1 className="items-center flex font-bold text-4xl font-lato">
+        <h1 className="items-center flex font-bold text-4xl font-garamond">
           <Link href={'/'}>
           Naga
           </Link>
         </h1>
       </div>
-      <div className="ml-auto flex w-full  justify-center">
+      <div className="ml-auto flex w-full  justify-center font-montserrat">
         <NavigationMenu>
           <NavigationMenuList className="space-x-8">
             <NavigationMenuItem>
