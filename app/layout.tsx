@@ -26,8 +26,8 @@ const montserrat = Montserrat({
   fallback: ["Times New Roman"],
 });
 export const metadata: Metadata = {
-  title: "Naga - Personal Website",
-  description: "Constructing something valuable",
+  title: "Naga Sai | Software Engineer | IIT Madras",
+  description: "Personal Website",
 };
 
 export default function RootLayout({
