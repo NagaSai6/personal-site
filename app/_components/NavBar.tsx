@@ -31,7 +31,7 @@ export default function NavBar() {
             <NavigationMenuItem>
             <Link href={`/blog`}>Work</Link>
             </NavigationMenuItem>
-            <NavigationMenuItem className="text-right">
+            <NavigationMenuItem className="text-right bg-red-200 rounded-full px-2 py-1 font-lato">
                  Development v1.2.0
             </NavigationMenuItem>
           </NavigationMenuList>
