@@ -13,6 +13,14 @@ const nextConfig = {
     //     ];
     //   }
     // ok
+    images : {
+        remotePatterns :[
+            {
+                protocol:'https',
+                hostname:"www.transparentpng.com"
+            }
+        ]
+    }
 }
 
 module.exports = nextConfig

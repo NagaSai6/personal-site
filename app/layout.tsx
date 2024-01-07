@@ -26,7 +26,7 @@ const montserrat = Montserrat({
   fallback: ["Times New Roman"],
 });
 export const metadata: Metadata = {
-  title: "Naga Sai - Tech and Politics",
+  title: "Naga - Personal Website",
   description: "Constructing something valuable",
 };
 

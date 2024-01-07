@@ -31,8 +31,12 @@ export default function NavBar() {
             <NavigationMenuItem>
             <Link href={`/blog`}>Work</Link>
             </NavigationMenuItem>
+            <NavigationMenuItem className="text-right">
+                 Development v1.2.0
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+
       </div>
     </header>
   );
