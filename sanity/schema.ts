@@ -4,7 +4,9 @@ import { type SchemaTypeDefinition } from 'sanity'
 // import category from './schemas/category'
 // import post from './schemas/post'
 // import author from './schemas/author'
-import introduction from './schemas/introduction'
+import profile from "./schemas/profile";
+import project from './schemas/project';
+import workExperience from "./schemas/experience";
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [introduction],
+  types: [profile, project,workExperience],
 }

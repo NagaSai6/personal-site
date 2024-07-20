@@ -1,30 +1,23 @@
 import type { Metadata } from "next";
-import { Lato, Montserrat, EB_Garamond } from "next/font/google";
+import { Cormorant_Garamond, Proza_Libre } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import NavBar from "./_components/NavBar";
 
-const lato = Lato({
-  weight: ["100", "300", "700"],
+const cormorantGaramond = Cormorant_Garamond({
+  weight: ["600", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-lato",
-  fallback: ["Times New Roman"],
+  variable: "--font-cormorant",
 });
-const eb_garamond = EB_Garamond({
-  weight: ["400", "700"],
+
+const prozaLibre = Proza_Libre({
+  weight: ["400", "500"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-garamond",
-  fallback: ["Times New Roman"],
+  variable: "--font-proza",
 });
-const montserrat = Montserrat({
-  weight: ["100", "300", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-montserrat",
-  fallback: ["Times New Roman"],
-});
+
 export const metadata: Metadata = {
   title: "Naga Sai | Software Engineer | IIT Madras",
   description: "Personal Website",
@@ -38,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${montserrat.variable} ${eb_garamond.variable}`}
+      className={`${cormorantGaramond.variable} ${prozaLibre.variable}`}
     >
       <Head>
         <link
