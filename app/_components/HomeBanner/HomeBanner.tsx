@@ -15,7 +15,7 @@ export default function HomeBanner() {
             extends to the realms of physics and governance, adding a unique
             perspective to my tech-driven world.
           </p>
-          <Button className="mt-4 bg-green-500 text-white font-lato py-2 px-4 rounded hover:bg-green-600 transition-colors ">
+          <Button className="mt-4 bg-green-500 text-white font-lato py-2 px-4 rounded hover:bg-green-600 transition-colors duration-300 ease-in-out shadow-md hover:shadow-lg border border-transparent hover:border-gray-200 transform hover:scale-105">
             More About My Journey
           </Button>
         </div>
