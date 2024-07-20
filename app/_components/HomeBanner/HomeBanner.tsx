@@ -22,7 +22,7 @@ export default function HomeBanner() {
 
         <div className="flex justify-center">
           <Image
-            src="https://www.transparentpng.com/thumb/goku/y5OESW-goku-clipart-png-file.png"
+            src="/goku.webp"
             alt="goku clipart png file @transparentpng.com"
             width={300}
             height={300}
