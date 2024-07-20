@@ -55,7 +55,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuDemo() {
   return (
-    <NavigationMenu className="font-nonHeadingFont -skew-y-0">
+    <NavigationMenu className="font-nonHeadingFont">
       <NavigationMenuList className="">
         <NavigationMenuItem>
           <NavigationMenuTrigger className="font=">Getting started</NavigationMenuTrigger>
