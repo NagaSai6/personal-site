@@ -53,14 +53,14 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      fontSize:{
-        "h1": "2rem",
-        "h2": "1.5rem",
-        "h3": "1.25rem",
-        "h4": "1rem",
-        "h5": "0.875rem",
-        "h6": "0.75rem",
-        "p": "1rem",
+      fontSize: {
+        h1: "2rem",
+        h2: "1.5rem",
+        h3: "1.25rem",
+        h4: "1rem",
+        h5: "0.875rem",
+        h6: "0.75rem",
+        p: "1rem",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -82,8 +82,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        cormorantGaramond: ["var(--font-cormorant)"],
-        prozaLibre: ["var(--font-proza)"],
+        headingFont: ["var(--font-cormorant)"],
+        nonHeadingFont: ["var(--font-proza)"],
       },
     },
   },
