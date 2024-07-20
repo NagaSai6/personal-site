@@ -1,0 +1,17 @@
+/* Add this CSS to your stylesheet */
+
+/* Establish a 3D perspective on the container */
+.carousel_container {
+    perspective: 1000px;
+  }
+  
+  /* Set the default state for the card with transition for smooth effect */
+  .project_card {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Rotate the card slightly on hover to create the 3D effect */
+  .project_card:hover {
+    transform: rotateY(5deg);
+  }
