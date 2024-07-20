@@ -82,12 +82,12 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        headingFont: ["var(--font-cormorant)"],
-        nonHeadingFont: ["var(--font-proza)"],
+        primartFont: ["var(--font-cormorant)"],
+        secondaryFont: ["var(--font-proza)"],
       },
       fontWeight:{
-        headingFont:"700",
-        nonHeadingFont: "300",
+        primaryFontWeight:"700",
+        secondaryFontWeight: "300",
       }
     },
   },

@@ -12,7 +12,7 @@ export default function NavBar() {
       <div className="w-full flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Image src={"/images/nagasai_in_logo.svg"} className="hidden md:block" alt="Logo" width={50} height={50} />
-          <h1 className="font-headingFont  text-h1 md:block">{`Naga Sai`}</h1>
+          <h1 className="font-primartFont font-primaryFontWeight text-h1 md:block">{`Naga Sai`}</h1>
         </div>
         {/* Toggle the menu visibility on click */}
         <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
