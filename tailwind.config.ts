@@ -85,6 +85,10 @@ const config = {
         headingFont: ["var(--font-cormorant)"],
         nonHeadingFont: ["var(--font-proza)"],
       },
+      fontWeight:{
+        headingFont:"700",
+        nonHeadingFont: "300",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
