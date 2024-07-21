@@ -30,7 +30,7 @@ export default function Experience({
           className="h-10 w-10 object-cover rounded-md" // Reduced size
         />
         <div>
-          <h3 className="text-lg font-semibold">{companyName}</h3>
+          <h3 className="text-h3 font-primartFont font-secondaryFontWeight">{companyName}</h3>
           <p className="text-sm text-gray-500">{location}</p>
         </div>
       </div>

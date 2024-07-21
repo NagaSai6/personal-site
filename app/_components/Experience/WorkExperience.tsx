@@ -18,7 +18,7 @@ type Experience = {
 
 const workExperiences = [
   {
-    companyName: "Company A",
+    companyName: "Google LLC",
     companyLogo: "https://picsum.photos/200?random=3",
     role: "Software Engineer",
     description: "Worked on developing...",
@@ -26,7 +26,7 @@ const workExperiences = [
     location: "New York, NY",
   },
   {
-    companyName: "Company B",
+    companyName: "Wishup Technologies",
     companyLogo: "https://picsum.photos/200?random=1",
     role: "Full Stack Developer",
     description: "Focused on full stack web development...",
