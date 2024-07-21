@@ -97,7 +97,7 @@ export default function Card({
             </span>
           )}
         </div>
-        <Button className="font-medium w-full md:w-auto bg-green-500 text-white py-2.5 px-5 text-base rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 shadow hover:shadow-lg transition ease-in-out duration-150">
+        <Button className="font-medium w-full md:w-auto bg-green-500 text-white py-2.5 px-5 text-base rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 shadow hover:shadow-lg transition ease-in-out duration-150 font-secondaryFont">
           {type === "project" ? "View Project" : "Read More"}{" "}
           <MdOutlineKeyboardArrowRight className="ml-2 w-5 h-5" />
         </Button>
