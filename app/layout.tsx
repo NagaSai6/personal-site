@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Proza_Libre } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import NavBar from "./_components/NavBar";
+import Footer from "./_components/Footer/Footer";
 
 const cormorantGaramond = Cormorant_Garamond({
   weight: ["600", "700"],
@@ -59,6 +60,7 @@ export default function RootLayout({
       <body>
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
