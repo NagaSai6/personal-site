@@ -49,14 +49,14 @@ const Eyes: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative flex justify-center items-center space-x-4 p-2">
-      <div ref={leftEyeRef} className="relative w-10 h-10 bg-white rounded-full border-2 border-black shadow-md flex justify-center items-center">
+    <div className="relative flex justify-center items-center space-x-3 p-2">
+      <div ref={leftEyeRef} className="relative w-8 h-8 bg-white rounded-full border-2 border-black shadow-md flex justify-center items-center">
         <div
           className="absolute bg-black rounded-full"
           style={{ width: '40%', height: '40%', transform: `translate(-50%, -50%)`, top: leftPupilPosition.y, left: leftPupilPosition.x }}
         />
       </div>
-      <div ref={rightEyeRef} className="relative w-10 h-10 bg-white rounded-full border-2 border-black shadow-md flex justify-center items-center">
+      <div ref={rightEyeRef} className="relative w-8 h-8 bg-white rounded-full border-2 border-black shadow-md flex justify-center items-center">
         <div
           className="absolute bg-black rounded-full"
           style={{ width: '40%', height: '40%', transform: `translate(-50%, -50%)`, top: rightPupilPosition.y, left: rightPupilPosition.x }}
