@@ -10,7 +10,7 @@ export default function HomeBanner() {
             Discovering the Crossroads of Tech and Governance
           </h2>
           <p className="text-lg  text-gray-600 font-secondaryFont">
-            Hello, I&apos;m Naga Sai. I&apos;m a Software Engineer adept in both
+            Hello, I&apos;m Naga. I&apos;m a Software Engineer adept in both
             frontend and backend systems. Beyond the lines of code, my curiosity
             extends to the realms of physics and governance, adding a unique
             perspective to my tech-driven world.
