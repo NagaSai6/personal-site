@@ -26,7 +26,7 @@ const workExperiences = [
     location: "New York, NY",
   },
   {
-    companyName: "Wishup Technologies",
+    companyName: "Wishup.co",
     companyLogo: "https://picsum.photos/200?random=1",
     role: "Full Stack Developer",
     description: "Focused on full stack web development...",
