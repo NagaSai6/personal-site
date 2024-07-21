@@ -56,18 +56,25 @@ const projects = [
 ];
 export default function Projects() {
   return (
-    <div className="bg-grey-50 py-12 px-4 sm:px-6 lg:px-8 ">
+    <div className="bg-grey-50 py-12 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
       <div className="max-w-screen-xl mx-auto ">
         <h2 className="text-h2 font-primartFont font-primaryFontWeight text-gray-800 mb-8">
           Featured Projects
         </h2>
-        <div className={`max-w-screen-xl mx-auto `}>
-          <Carousel>
+        <div className={``}>
+          <Carousel
+            opts={{
+              loop: true,
+              breakpoints: {
+                "(min-width: 768px)": { slidesToScroll: 1, inViewThreshold: 1 },
+              },
+            }}
+          >
             <CarouselContent className="py-2 ">
               {projects.map((project, index) => (
                 <CarouselItem
                   key={index}
-                  className="flex flex-col md:basis-1/2 lg:basis-1/3"
+                  className="flex flex-col md:basis-1/2 lg:basis-1/3 sm:basis-1"
                 >
                   <div
                     className={`bg-white shadow-md hover:shadow-lg rounded-lg overflow-hidden flex flex-col  transition duration-300 ease-in-out transform hover:-translate-y-1`}
