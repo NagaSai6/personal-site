@@ -4,17 +4,18 @@ import { Button } from "@/components/ui/button";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Link from "next/link";
 import { FiClock } from "react-icons/fi";
+import { BlogTags } from "@/types/blog";
 
 type CardProps = {
   type: "blog" | "project";
   title: string;
   description: string;
   content?: string;
-  technologies?: string[];
+  technologies?: { name: string; url: string }[];
   imageUrl: string;
-  slug?: string;
+  url?: string;
   publishedDate?: string;
-  tags?: string[];
+  tags?: BlogTags[];
 };
 
 export default function Card({
@@ -24,12 +25,14 @@ export default function Card({
   content,
   technologies,
   imageUrl,
-  slug,
   publishedDate,
   tags,
 }: CardProps) {
   const averageReadingSpeed = 200; // Words per minute
-  const wordCount = description.split(" ").length;
+  const wordCount =
+    (type === "project"
+      ? description.split(" ").length
+      : content?.split(" ").length) || 0;
   const readingTime = Math.ceil(wordCount / averageReadingSpeed);
 
   return (
@@ -57,7 +60,7 @@ export default function Card({
           {title}
         </h3>
         {type === "blog" && (
-          <div className="text-gray-600 text-xs md:text-sm mb-2">
+          <div className="text-gray-600 text-xs md:text-sm mb-2 font-secondaryFont">
             {publishedDate}
           </div>
         )}
@@ -77,17 +80,15 @@ export default function Card({
             .map((item, index) => (
               <span
                 key={index}
-                className={`inline-block rounded-full px-2 py-1 text-xs md:text-sm font-secondaryFont text-gray-700 mr-1 mb-1 ${
-                  type === "blog"
-                    ? "bg-blue-200 hover:bg-blue-300 cursor-pointer"
-                    : "bg-gray-200 hover:bg-gray-300"
-                }`}
+                className={`inline-block rounded-full px-2 py-1 text-xs md:text-sm font-secondaryFont text-gray-700 mr-1 mb-1 bg-gray-200 hover:bg-gray-300 cursor-pointer`}
               >
-                {type === "blog" ? (
-                  <Link href={`/blog/tags/${item}`}>{item}</Link>
-                ) : (
-                  item
-                )}
+                <Link
+                  href={
+                    type === "project" ? item.url : `/blog/tags/${item.url}`
+                  }
+                >
+                  {item.name}
+                </Link>
               </span>
             ))}
           {((type === "project" ? technologies : tags) || [])?.length > 5 && (
