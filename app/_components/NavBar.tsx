@@ -15,7 +15,7 @@ export default function NavBar() {
           <h1 className="font-primartFont font-primaryFontWeight text-h1 md:block">{`Naga Sai Rao`}</h1>
         </div>
         {/* Toggle the menu visibility on click */}
-        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button className="block md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <HiMiniBars3BottomLeft className="h-6 w-6" />
         </button>
        <div className="hidden md:block">
