@@ -155,7 +155,7 @@ export default function Blogs() {
   return (
     <CarouselLayout
       name="Latest Blogs"
-      viewAllLink="/blogs"
+      viewAllLink="/blog"
       viewAllText="View All Blogs"
       type="blog"
       blogs={blogs}
