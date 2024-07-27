@@ -5,17 +5,17 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Link from "next/link";
 import { FiClock } from "react-icons/fi";
 import { BlogTags } from "@/types/blog";
-
+import { BlockSchemaType } from "sanity";
 type CardProps = {
   type: "blog" | "project";
   title: string;
   description: string;
-  content?: string;
+  content?: BlockSchemaType;
   technologies?: { name: string; url: string }[];
   imageUrl: string;
   url?: string;
   publishedDate?: string;
-  tags?: BlogTags[];
+  tags?: { name: string; url: string }[];
 };
 
 export default function Card({
@@ -27,17 +27,18 @@ export default function Card({
   imageUrl,
   publishedDate,
   tags,
+  url,
 }: CardProps) {
   const averageReadingSpeed = 200; // Words per minute
   const wordCount =
     (type === "project"
       ? description.split(" ").length
-      : content?.split(" ").length) || 0;
+      : description!.split(" ").length) || 0;
   const readingTime = Math.ceil(wordCount / averageReadingSpeed);
 
   return (
     <div
-      className="bg-white shadow-md hover:shadow-lg rounded-lg overflow-hidden flex flex-col transition duration-300 ease-in-out transform hover:-translate-y-1"
+      className="bg-white shadow-md hover:shadow-lg rounded-lg overflow-hidden flex flex-col transition duration-300 ease-in-out transform hover:-translate-y-1 min-h-max"
       style={{ minHeight: "400px" }}
     >
       <div className="flex-grow flex justify-center items-center h-40 relative">
@@ -56,7 +57,7 @@ export default function Card({
         />
       </div>
       <div className="p-4 md:p-2 flex-grow">
-        <h3 className="font-primartFont font-primaryFontWeight text-h3 mb-1 truncate">
+        <h3 className="font-primartFont font-primaryFontWeight text-h5 sm:text-h5 md:text-h4 lg:text-h3 mb-2 leading-snug">
           {title}
         </h3>
         {type === "blog" && (
@@ -98,10 +99,12 @@ export default function Card({
             </span>
           )}
         </div>
-        <Button className="font-medium w-full md:w-auto bg-green-500 text-white py-2.5 px-5 text-base rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 shadow hover:shadow-lg transition ease-in-out duration-150 font-secondaryFont">
-          {type === "project" ? "View Project" : "Read More"}{" "}
-          <MdOutlineKeyboardArrowRight className="ml-2 w-5 h-5" />
-        </Button>
+        <Link href={`${url}`}>
+          <Button className="font-medium w-full md:w-auto bg-green-500 text-white py-2.5 px-5 text-base rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 shadow hover:shadow-lg transition ease-in-out duration-150 font-secondaryFont">
+            {type === "project" ? "View Project" : "Read More"}{" "}
+            <MdOutlineKeyboardArrowRight className="ml-2 w-5 h-5 my-auto" />
+          </Button>
+        </Link>
       </div>
     </div>
   );

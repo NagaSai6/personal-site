@@ -5,13 +5,13 @@ import { BLOGS_QUERY } from "@/sanity/queries/sanity-queries";
 import { BLOGS_QUERYResult } from "@/sanity.types";
 import { Posts } from "@/app/_components/Blogs/Posts";
 export default async function page() {
-  const blogs = await sanityFetch<BLOGS_QUERYResult>({
+  const posts = await sanityFetch<BLOGS_QUERYResult>({
     query: BLOGS_QUERY,
   });
   return (
     <>
       <BlogHeader />
-      <Posts posts={blogs} />
+      <Posts posts={posts} />
     </>
   );
 }

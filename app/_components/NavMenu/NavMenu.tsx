@@ -57,7 +57,7 @@ export function NavigationMenuDemo() {
   return (
     <NavigationMenu className="font-secondaryFont">
       <NavigationMenuList className="">
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger className="font=">Getting started</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -106,11 +106,18 @@ export function NavigationMenuDemo() {
               ))}
             </ul>
           </NavigationMenuContent>
+        </NavigationMenuItem> */}
+        <NavigationMenuItem>
+          <Link href="/blog" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Blog
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/about" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              About
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

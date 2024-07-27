@@ -13,7 +13,7 @@ export const client = createClient({
   useCdn: true,
   stega: {
     enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",
-    studioUrl: "/studio",
+    studioUrl: "/magic",
   },
 });
 
@@ -43,12 +43,13 @@ export async function sanityFetch<QueryResponse>({
   }
 
   return client.fetch<QueryResponse>(query, params, {
-    ...(isDraftMode &&
-      ({
-        token: token,
-        perspective: "previewDrafts",
-        stega: true,
-      } satisfies QueryOptions)),
+    ...(isDraftMode
+      ? ({
+          token: token,
+          perspective: "previewDrafts",
+          stega: true,
+        } satisfies QueryOptions)
+      : { perspective: "published",token: token }),
     next: {
       revalidate: dynamicRevalidate,
       tags,

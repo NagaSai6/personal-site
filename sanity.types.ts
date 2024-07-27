@@ -82,6 +82,13 @@ export type Blog = {
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "author";
   };
+  tags?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "tag";
+  }>;
   coverImage?: {
     asset?: {
       _ref: string;
@@ -404,11 +411,59 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries/sanity-queries.ts
 // Variable: BLOGS_QUERY
-// Query: *[_type == "blog" && defined(slug.current)][0...12]{  _id, title, slug}
+// Query: *[_type == "blog" && defined(slug.current)][0...12]{  _id,  title,  slug,  publishedAt,  excerpt,  content,  "author": author->{    name,    image  },  "tags": tags[]->{    name,    slug  },  "coverImage": coverImage{    asset->{      url,      metadata {        dimensions,        lqip, // low quality image placeholder        palette      }    }  }}
 export type BLOGS_QUERYResult = Array<{
   _id: string;
   title: string | null;
   slug: Slug | null;
+  publishedAt: string | null;
+  excerpt: string | null;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  author: {
+    name: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
+  tags: Array<{
+    name: string | null;
+    slug: Slug | null;
+  }> | null;
+  coverImage: {
+    asset: {
+      url: string | null;
+      metadata: {
+        dimensions: SanityImageDimensions | null;
+        lqip: string | null;
+        palette: SanityImagePalette | null;
+      } | null;
+    } | null;
+  } | null;
 }>;
 // Variable: BLOG_QUERY
 // Query: *[_type == "blog" && slug.current == $slug][0]{  title, content, coverImage}

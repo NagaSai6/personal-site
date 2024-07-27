@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   );
 
   if (!isValid) {
-    return new Response("Invalid secret", { status: 401 });
+    return new Response("you dont have neccessary permissions ", { status: 401 });
   }
 
   draftMode().enable();
