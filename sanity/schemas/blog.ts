@@ -1,13 +1,12 @@
 import { defineField, defineType } from "sanity";
 import { HiRss } from "react-icons/hi";
 
-
 export default defineType({
   name: "blog",
   title: "Blog",
   type: "document",
-  icon : HiRss,
-  fields:[
+  icon: HiRss,
+  fields: [
     defineField({
       name: "title",
       title: "Title",
@@ -29,6 +28,12 @@ export default defineType({
       title: "Author",
       type: "reference",
       to: [{ type: "author" }],
+    }),
+    defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "tag" }] }],
     }),
     defineField({
       name: "coverImage",

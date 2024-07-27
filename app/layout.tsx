@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Proza_Libre } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import NavBar from "./_components/NavBar";
-import Footer from "./_components/Footer/Footer";
+import React from "react";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
 
 const cormorantGaramond = Cormorant_Garamond({
   weight: ["600", "700"],
@@ -57,7 +58,18 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <body>{children}</body>
+      <body>
+        {draftMode().isEnabled && (
+          <a
+            className="fixed right-0 bottom-0 bg-blue-500 text-white p-4 m-4"
+            href="/api/draft-mode-disable"
+          >
+            Disable preview mode
+          </a>
+        )}
+        {children}
+        {draftMode().isEnabled && <VisualEditing />}
+      </body>
     </html>
   );
 }

@@ -24,7 +24,10 @@ const nextConfig = {
                 hostname : "picsum.photos"
             }
         ]
-    }
+    },
+    experimental: {
+        taint: true,
+      },
 }
 
 module.exports = nextConfig
