@@ -60,7 +60,7 @@ export default function CarouselLayout({
           description={blog.description}
           imageUrl={blog.imageUrl}
           url={blog.slug}
-          content={blog.content}
+          
           publishedDate={blog.publishedDate}
           tags={blog.tags}
         />
