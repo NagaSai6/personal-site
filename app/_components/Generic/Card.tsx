@@ -57,7 +57,7 @@ export default function Card({
         />
       </div>
       <div className="p-4 md:p-2 flex-grow">
-        <h3 className="font-primartFont font-primaryFontWeight text-h5 sm:text-h5 md:text-h4 lg:text-h3 mb-2 leading-snug">
+        <h3 className="font-primartFont font-primaryFontWeight text-h4 sm:text-h4 md:text-h4 lg:text-h3 mb-2 leading-snug">
           {title}
         </h3>
         {type === "blog" && (

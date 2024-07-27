@@ -6,7 +6,6 @@ export const BLOGS_QUERY = groq`*[_type == "blog" && defined(slug.current)][0...
   slug,
   publishedAt,
   excerpt,
-  content,
   "author": author->{
     name,
     image

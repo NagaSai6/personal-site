@@ -60,7 +60,6 @@ export default function CarouselLayout({
           description={blog.description}
           imageUrl={blog.imageUrl}
           url={blog.slug}
-          
           publishedDate={blog.publishedDate}
           tags={blog.tags}
         />
@@ -69,7 +68,9 @@ export default function CarouselLayout({
   }
 
   return (
-    <div className={ `bg-grey-50 py-12 px-4 sm:px-6 lg:px-8 overflow-x-hidden ${styles.carouselContainer}`}>
+    <div
+      className={`bg-grey-50 py-12 px-4 sm:px-6 lg:px-8 overflow-x-hidden ${styles.carouselContainer}`}
+    >
       <div className={`max-w-screen-xl mx-auto  ${styles.curvedBackground}`}>
         <h2 className="text-h2 font-primartFont font-primaryFontWeight text-gray-800 mb-8">
           {name}

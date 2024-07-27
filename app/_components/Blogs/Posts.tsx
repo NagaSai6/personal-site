@@ -16,7 +16,7 @@ export function Posts({ posts }: { posts: BLOGS_QUERYResult }) {
               publishedDate={post.publishedAt!}
               description={post.excerpt!}
               tags={post.tags?.map((tag)=>({name:tag.name!,url:tag.slug?.current!}))}
-              url={`/blog/${post.slug?.current!}`}
+              url={`/blog/post/${post.slug?.current!}`}
             />
           
         ))}

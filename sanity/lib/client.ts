@@ -15,6 +15,7 @@ export const client = createClient({
     enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",
     studioUrl: "/magic",
   },
+  token: token,
 });
 
 export async function sanityFetch<QueryResponse>({
