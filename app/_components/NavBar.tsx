@@ -8,7 +8,7 @@ export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white  px-5 py-3 flex flex-col md:flex-row items-center justify-between shadow-lg transform -skew-y-1 lg:sticky lg:top-0 lg:z-50">
+    <nav className="bg-white  px-5 py-3 flex flex-col md:flex-row items-center justify-between shadow-lg  lg:sticky lg:top-0 lg:z-50">
       <div className="w-full flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Image src={"/images/nagasai_in_logo.svg"} className="hidden md:block" alt="Logo" width={50} height={50} />
