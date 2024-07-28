@@ -35,6 +35,22 @@ const components: PortableTextComponents = {
       );
     },
   },
+  block: {
+    // Ex. 1: customizing common block types
+    h1: ({ children }) => <h1 className="text-h1 font-secondaryFontWeight">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-h2 font-secondaryFontWeight">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-h3">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-h4">{children}</h4>,
+    h5: ({ children }) => <h5 className="text-h5">{children}</h5>,
+    h6: ({ children }) => <h6 className="text-h6">{children}</h6>,
+    span : ({ children }) => <span className="text-base">{children}</span>,
+    p : ({ children }) => <p className="text-base">{children}</p>,
+  },
+  list: {
+    // Ex. 1: customizing common list types
+    bullet: ({children}) => <ul className="mt-xl">{children}</ul>,
+    number: ({children}) => <ol className="mt-lg">{children}</ol>,
+  },
 };
 
 export default function Post({ post }: { post: BLOG_QUERYResult }) {
