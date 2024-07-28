@@ -12,7 +12,9 @@ import jsx from "refractor/lang/jsx";
 import tsx from "refractor/lang/tsx";
 import handlebars from "refractor/lang/handlebars";
 import docker from 'refractor/lang/docker'
-
+import "./styles/twillight.css";
+// import "./styles/funky.css";
+// import './styles/tomorrow.css'
 import { Refractor, registerLanguage } from "react-refractor";
 
 registerLanguage(js);
