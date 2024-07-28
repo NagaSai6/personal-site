@@ -19,7 +19,7 @@ const components: PortableTextComponents = {
       <em className="text-gray-600 font-semibold">{children}</em>
     ),
     strong: ({ children }) => (
-      <strong className="text-gray-600 font-bold text-green-500">
+      <strong className=" font-bold text-green-500">
         {children}
       </strong>
     ),
@@ -87,7 +87,7 @@ const components: PortableTextComponents = {
 
 export default function Post({ post }: { post: BLOG_QUERYResult }) {
   return (
-    <div className="p-0 md:p-8 bg-white  shadow-lg rounded-lg">
+    <div className="w-full max-w-4xl mx-auto p-0 md:p-8 bg-white shadow-lg rounded-lg" >
       <PostHeader
         title={post?.title!}
         author={{
