@@ -18,6 +18,11 @@ const components: PortableTextComponents = {
     em: ({ children }) => (
       <em className="text-gray-600 font-semibold">{children}</em>
     ),
+    strong: ({ children }) => (
+      <strong className="text-gray-600 font-bold text-green-500">
+        {children}
+      </strong>
+    ),
 
     // Ex. 2: rendering a custom `link` annotation
     link: ({ value, children }) => {
@@ -70,6 +75,13 @@ const components: PortableTextComponents = {
     number: ({ children }) => (
       <ol className="list-decimal list-inside my-2 ml-4">{children}</ol>
     ),
+  },
+  listItem: {
+    // Ex. 1: customizing common list types
+    bullet: ({ children }) => <li className="my-2 list-disc">{children}</li>,
+    number: ({ children }) => <li className="list-decimal my-2">{children}</li>,
+    // Ex. 2: rendering custom list items
+    checkmarks: ({ children }) => <li>✅ {children}</li>,
   },
 };
 
