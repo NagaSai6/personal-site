@@ -39,7 +39,7 @@ export default function Card({
   return (
     <div
       className="bg-white shadow-md hover:shadow-lg rounded-lg overflow-hidden flex flex-col transition duration-300 ease-in-out transform hover:-translate-y-1 min-h-max"
-      style={{ minHeight: "400px" }}
+      style={{ minHeight : "-webkit-fill-available" }}
     >
       <div className="flex-grow flex justify-center items-center h-40 relative">
         <div className="absolute z-10 top-0 right-0 bg-black bg-opacity-75 text-white px-3 py-2 text-xs font-secondaryFont font-medium rounded-lg shadow">

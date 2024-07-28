@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Project } from "@/types/project";
 import { Blog } from "@/types/blog";
 import styles from "@/public/css-modules/CarouselLayout.module.css";
-
+import { BLOGS_QUERYResult } from "@/sanity.types";
 import {
   Carousel,
   CarouselContent,
@@ -19,7 +19,7 @@ type CarouselLayoutProps = {
   viewAllLink: string;
   viewAllText: string;
   projects?: Project[];
-  blogs?: Blog[];
+  blogs?: BLOGS_QUERYResult;
   type: "project" | "blog";
 };
 export default function CarouselLayout({
@@ -56,12 +56,15 @@ export default function CarouselLayout({
       >
         <Card
           type="blog"
-          title={blog.title}
-          description={blog.description}
-          imageUrl={blog.imageUrl}
-          url={blog.slug}
-          publishedDate={blog.publishedDate}
-          tags={blog.tags}
+          title={blog.title!}
+          description={blog.excerpt!}
+          imageUrl={blog.coverImage?.asset?.url!}
+          url={`/blog/post/${blog.slug?.current!}`}
+          publishedDate={blog.publishedAt!}
+          tags={blog.tags?.map((tag) => ({
+            name: tag.name!,
+            url: tag?.slug?.current!,
+          }))}
         />
       </CarouselItem>
     ));
@@ -75,8 +78,9 @@ export default function CarouselLayout({
         <h2 className="text-h2 font-primartFont font-primaryFontWeight text-gray-800 mb-8">
           {name}
         </h2>
-        <div className={``}>
+        <div className={` min-h-max`}>
           <Carousel
+            className=" min-h-max"
             opts={{
               loop: true,
               breakpoints: {
