@@ -25,7 +25,7 @@ export default function PostHeader({
   return (
     <header className="">
       <div className="container mx-auto">
-        <h1 className="font-primartFont font-primaryFontWeight text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black mb-2 md:mb-3 leading-snug">
+        <h1 className="font-primartFont font-primaryFontWeight text-3xl sm:text-h2 md:text-3xl lg:text-4xl text-black mb-3 md:mb-4 leading-snug">
           {title}
         </h1>
         <div className="flex items-center mb-3 md:mb-4">
