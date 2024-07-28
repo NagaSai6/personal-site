@@ -49,7 +49,7 @@ export default function Post({ post }: { post: BLOG_QUERYResult }) {
         publishedAt={post?.publishedAt!}
         tags={post?.tags!}
       />
-      <section className="mt-10 mx-auto container">
+      <section className="mt-10 mx-auto container font-secondaryFont">
         <PortableText value={post?.content!} components={components} />
       </section>
     </div>
