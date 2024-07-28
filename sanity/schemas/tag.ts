@@ -12,6 +12,7 @@ export default defineType({
       title: "Name",
       type: "string",
       description: "Enter the name of the tag",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
@@ -22,12 +23,14 @@ export default defineType({
         source: "name",
         maxLength: 200,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "description",
       title: "Description",
       type: "text",
       description: "Enter the description of the tag",
+      validation: (Rule) => Rule.required() && Rule.max(400), 
     }),
     defineField({
       name: "image",
@@ -36,6 +39,23 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      description: "Upload the image of the tag",
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alt Text",
+          description: "Alternative text for the image",
+          validation: (Rule) => Rule.required().warning('Alt text is important for accessibility.'),
+        },
+        {
+          name: "credits",
+          type: "string",
+          title: "Credits",
+          description: "Source of the image",
+        },
+      ],
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });

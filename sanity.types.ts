@@ -64,6 +64,8 @@ export type Tag = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt?: string;
+    credits?: string;
     _type: "image";
   };
 };
@@ -112,14 +114,38 @@ export type Blog = {
     style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
     listItem?: "bullet" | "number";
     markDefs?: Array<{
-      href?: string;
+      url?: string;
       _type: "link";
+      _key: string;
+    } | {
+      reference?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "blog";
+      };
+      _type: "internalLink";
       _key: string;
     }>;
     level?: number;
     _type: "block";
     _key: string;
-  }>;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    credits?: string;
+    _type: "image";
+    _key: string;
+  } | ({
+    _key: string;
+  } & Code)>;
 };
 
 export type Author = {
@@ -407,35 +433,25 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Tag | Blog | Author | WorkExperience | Projects | Slug | Profile | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type Code = {
+  _type: "code";
+  language?: string;
+  filename?: string;
+  code?: string;
+  highlightedLines?: Array<number>;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Tag | Blog | Author | WorkExperience | Projects | Slug | Profile | SanityFileAsset | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries/sanity-queries.ts
 // Variable: BLOGS_QUERY
-// Query: *[_type == "blog" && defined(slug.current)][0...12]{  _id,  title,  slug,  publishedAt,  excerpt,  content,  "author": author->{    name,    image  },  "tags": tags[]->{    name,    slug  },  "coverImage": coverImage{    asset->{      url,      metadata {        dimensions,        lqip, // low quality image placeholder        palette      }    }  }}
+// Query: *[_type == "blog" && defined(slug.current)][0...12]{  _id,  title,  slug,  publishedAt,  excerpt,  "author": author->{    name,    image  },  "tags": tags[]->{    name,    slug  },  "coverImage": coverImage{    asset->{      url,      metadata {        dimensions,        lqip, // low quality image placeholder        palette      }    }  }}
 export type BLOGS_QUERYResult = Array<{
   _id: string;
   title: string | null;
   slug: Slug | null;
   publishedAt: string | null;
   excerpt: string | null;
-  content: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }> | null;
   author: {
     name: string | null;
     image: {
@@ -469,7 +485,9 @@ export type BLOGS_QUERYResult = Array<{
 // Query: *[_type == "blog" && slug.current == $slug][0]{  title, content, coverImage}
 export type BLOG_QUERYResult = {
   title: string | null;
-  content: Array<{
+  content: Array<({
+    _key: string;
+  } & Code) | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -479,12 +497,34 @@ export type BLOG_QUERYResult = {
     style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
     listItem?: "bullet" | "number";
     markDefs?: Array<{
-      href?: string;
+      reference?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "blog";
+      };
+      _type: "internalLink";
+      _key: string;
+    } | {
+      url?: string;
       _type: "link";
       _key: string;
     }>;
     level?: number;
     _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    credits?: string;
+    _type: "image";
     _key: string;
   }> | null;
   coverImage: {

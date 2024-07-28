@@ -12,6 +12,7 @@ export default defineType({
       title: "Name",
       type: "string",
       description: "Enter the name of the author",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
@@ -22,6 +23,7 @@ export default defineType({
         source: "name",
         maxLength: 200,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "image",
