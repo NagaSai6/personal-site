@@ -8,7 +8,6 @@ export const BLOGS_QUERY = groq`*[_type == "blog" && defined(slug.current)][0...
   excerpt,
   "author": author->{
     name,
-    image
   },
   "tags": tags[]->{
     name,
@@ -25,7 +24,10 @@ export const BLOGS_QUERY = groq`*[_type == "blog" && defined(slug.current)][0...
     }
   }
 }`;
-
 export const BLOG_QUERY = groq`*[_type == "blog" && slug.current == $slug][0]{
-  title, content, coverImage
+  title, 
+  content, 
+  publishedAt, 
+  author->{name, image{asset->{url}}}, 
+  tags[]->{name, slug}
 }`;

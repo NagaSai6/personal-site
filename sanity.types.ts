@@ -445,7 +445,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/queries/sanity-queries.ts
 // Variable: BLOGS_QUERY
-// Query: *[_type == "blog" && defined(slug.current)][0...12]{  _id,  title,  slug,  publishedAt,  excerpt,  "author": author->{    name,    image  },  "tags": tags[]->{    name,    slug  },  "coverImage": coverImage{    asset->{      url,      metadata {        dimensions,        lqip, // low quality image placeholder        palette      }    }  }}
+// Query: *[_type == "blog" && defined(slug.current)][0...12]{  _id,  title,  slug,  publishedAt,  excerpt,  "author": author->{    name,  },  "tags": tags[]->{    name,    slug  },  "coverImage": coverImage{    asset->{      url,      metadata {        dimensions,        lqip, // low quality image placeholder        palette      }    }  }}
 export type BLOGS_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -454,17 +454,6 @@ export type BLOGS_QUERYResult = Array<{
   excerpt: string | null;
   author: {
     name: string | null;
-    image: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    } | null;
   } | null;
   tags: Array<{
     name: string | null;
@@ -482,7 +471,7 @@ export type BLOGS_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: BLOG_QUERY
-// Query: *[_type == "blog" && slug.current == $slug][0]{  title, content, coverImage}
+// Query: *[_type == "blog" && slug.current == $slug][0]{  title,   content,   publishedAt,   author->{name, image{asset->{url}}},   tags[]->{name, slug}}
 export type BLOG_QUERYResult = {
   title: string | null;
   content: Array<({
@@ -527,15 +516,17 @@ export type BLOG_QUERYResult = {
     _type: "image";
     _key: string;
   }> | null;
-  coverImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
+  publishedAt: string | null;
+  author: {
+    name: string | null;
+    image: {
+      asset: {
+        url: string | null;
+      } | null;
+    } | null;
   } | null;
+  tags: Array<{
+    name: string | null;
+    slug: Slug | null;
+  }> | null;
 } | null;
