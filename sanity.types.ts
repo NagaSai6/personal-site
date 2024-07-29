@@ -530,6 +530,48 @@ export type BLOG_QUERYResult = {
     slug: Slug | null;
   }> | null;
 } | null;
+// Variable: TAGS_QUERY
+// Query: *[_type == "tag" && defined(slug.current)][0...12]{  _id,slug,name}
+export type TAGS_QUERYResult = Array<{
+  _id: string;
+  slug: Slug | null;
+  name: string | null;
+}>;
+// Variable: TAG_BLOGS_QUERY
+// Query: *[_type == "tag" && slug.current == $slug][0]{  _id,  name,  description,  "slug": slug.current,  "image":{  "url": image.asset->url},  "blogs": *[_type == "blog" && references(^._id)][0...12]{    _id,    title,    slug,    publishedAt,    excerpt,    "author": author->{      name,    },    "tags": tags[]->{      name,      slug    },    "coverImage": coverImage{      asset->{        url,        metadata {          dimensions,          lqip, // low quality image placeholder          palette        }      }    }  }}
+export type TAG_BLOGS_QUERYResult = {
+  _id: string;
+  name: string | null;
+  description: string | null;
+  slug: string | null;
+  image: {
+    url: string | null;
+  };
+  blogs: Array<{
+    _id: string;
+    title: string | null;
+    slug: Slug | null;
+    publishedAt: string | null;
+    excerpt: string | null;
+    author: {
+      name: string | null;
+    } | null;
+    tags: Array<{
+      name: string | null;
+      slug: Slug | null;
+    }> | null;
+    coverImage: {
+      asset: {
+        url: string | null;
+        metadata: {
+          dimensions: SanityImageDimensions | null;
+          lqip: string | null;
+          palette: SanityImagePalette | null;
+        } | null;
+      } | null;
+    } | null;
+  }>;
+} | null;
 // Variable: TAG_BLOGS_COUNT_QUERY
 // Query:     *[_type == "tag"]{      _id,      name,      "slug": slug.current,      "count": count(*[_type == "blog" && references(^._id)])    }  
 export type TAG_BLOGS_COUNT_QUERYResult = Array<{

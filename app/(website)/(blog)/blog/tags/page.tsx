@@ -2,7 +2,7 @@ import React from 'react'
 import { TAG_BLOGS_COUNT_QUERY } from '@/sanity/queries/sanity-queries';
 import { sanityFetch } from '@/sanity/lib/client';
 import { TAG_BLOGS_COUNT_QUERYResult } from '@/sanity.types';
-
+import Link from 'next/link';
 
 export default async function page() {
     const tags = await sanityFetch<TAG_BLOGS_COUNT_QUERYResult>({
@@ -15,7 +15,10 @@ export default async function page() {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {tags.map((tag) => (
         <div key={tag._id} className="bg-gray-50 p-4 rounded shadow">
-          <h2 className="text-xl font-semibold text-green-500">{tag.name}</h2>
+          <h2 className="text-xl font-semibold text-green-500">
+            <Link href={`/blog/tag/${tag?.slug}`}>
+            {tag.name}</Link>
+          </h2>
           <p className="text-gray-700">{tag.count} blog posts</p>
         </div>
       ))}
