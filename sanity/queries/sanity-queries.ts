@@ -31,3 +31,13 @@ export const BLOG_QUERY = groq`*[_type == "blog" && slug.current == $slug][0]{
   author->{name, image{asset->{url}}}, 
   tags[]->{name, slug}
 }`;
+
+
+export const TAG_BLOGS_COUNT_QUERY = groq`
+    *[_type == "tag"]{
+      _id,
+      name,
+      "slug": slug.current,
+      "count": count(*[_type == "blog" && references(^._id)])
+    }
+  `

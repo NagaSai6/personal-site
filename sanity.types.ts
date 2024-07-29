@@ -530,3 +530,11 @@ export type BLOG_QUERYResult = {
     slug: Slug | null;
   }> | null;
 } | null;
+// Variable: TAG_BLOGS_COUNT_QUERY
+// Query:     *[_type == "tag"]{      _id,      name,      "slug": slug.current,      "count": count(*[_type == "blog" && references(^._id)])    }  
+export type TAG_BLOGS_COUNT_QUERYResult = Array<{
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  count: number;
+}>;

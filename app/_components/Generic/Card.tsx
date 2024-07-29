@@ -85,7 +85,7 @@ export default function Card({
               >
                 <Link
                   href={
-                    type === "project" ? item.url : `/blog/tags/${item.url}`
+                    type === "project" ? item.url : `/blog/tag/${item.url}`
                   }
                 >
                   {item.name}

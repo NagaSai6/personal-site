@@ -12,6 +12,7 @@ import jsx from "refractor/lang/jsx";
 import tsx from "refractor/lang/tsx";
 import handlebars from "refractor/lang/handlebars";
 import docker from 'refractor/lang/docker'
+import toml from 'refractor/lang/toml'
 import "./styles/twillight.css";
 // import "./styles/funky.css";
 // import './styles/tomorrow.css'
@@ -30,6 +31,7 @@ registerLanguage(jsx);
 registerLanguage(tsx);
 registerLanguage(handlebars);
 registerLanguage(docker);
+registerLanguage(toml);
 // interface SanityCodeHighlighterProps {
 //   language: string;
 //   code: string;
